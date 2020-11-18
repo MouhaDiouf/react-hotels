@@ -43,6 +43,9 @@ export default class SingleRoom extends Component {
       pets,
       images,
     } = room;
+
+    const [mainImg, ...defaultImg] = images;
+
     return (
       <>
         <StyledHero img={images[0]}>
@@ -52,6 +55,13 @@ export default class SingleRoom extends Component {
             </Link>
           </Banner>
         </StyledHero>
+        <section className="single-room">
+          <div className="single-room-images">
+            {defaultImg.map((item, index) => (
+              <img key={index} src={item} alt={name} />
+            ))}
+          </div>
+        </section>
       </>
     );
   }
