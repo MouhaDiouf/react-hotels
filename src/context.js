@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from './components/Loading';
 import items from './data';
 const RoomContext = React.createContext();
 // <RoomContext.Provider value={'hello'}
@@ -46,5 +47,15 @@ class RoomProvider extends Component {
 }
 
 const RoomConsumer = RoomContext.Consumer;
+
+export function withRoomConsumer(Component) {
+  return function ConsumerWrapper(props) {
+    return (
+      <RoomConsumer>
+        {(value) => <Component {...props} context={value} />}
+      </RoomConsumer>
+    );
+  };
+}
 
 export { RoomProvider, RoomConsumer, RoomContext };

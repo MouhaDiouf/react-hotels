@@ -9,7 +9,7 @@ import Services from '../components/Services';
 function Home() {
   return (
     <>
-      <Hero>
+      <Hero hero="roomsHero">
         <Banner
           title="luxurious rooms"
           subtitle="deluxe rooms starting at $299"
